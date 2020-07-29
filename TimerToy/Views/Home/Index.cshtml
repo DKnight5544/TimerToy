@@ -1,31 +1,71 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<!DOCTYPE html>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+@model TimerToy.Page
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+<html>
+
+<head>
+    <meta name='viewport'
+          content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+    <title>Timer Toys</title>
+    @Styles.Render("~/Content/Home/Index.css?" + DateTime.Now.Ticks)
+    @Scripts.Render("~/Scripts/Home/Index.js?" + DateTime.Now.Ticks)
+    <script>
+        let _PageKey = "@Model.PageKey";
+        let _PageName = "@Html.Raw(Model.PageName)";
+    </script>
+</head>
+
+@*<body onload="body_onload();">*@
+
+<body>
+
+    <input type="text" id="PageNameInput" value="Timer Toys Rocks!" />
+    <div id="MainContainer" class="page_container">
+
+        <div id="TimerTemplate">
+            <table class="timer_table">
+                <tr>
+                    <td class='timer_name_col' colspan="10">
+                        <input type='text' class='timer_name' value="Daves Really Long Ass Timer Name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="timer_days_col" class='timer_seg_time' colspan='2' rowspan="2" style="border-left-color:transparent;">00</td>
+                    <td id="timer_hours_col" class='timer_seg_time' colspan='2' rowspan="2">00</td>
+                    <td id="timer_minute_col" class='timer_seg_time' colspan='2' rowspan="2">88</td>
+                    <td id="timer_seconds_col" class='timer_seg_time' colspan='2' rowspan="2">99</td>
+                    <td class="timer_control">ON</td>
+                    <td class="timer_control">RESET</td>
+                </tr>
+                <tr>
+                    <td class="timer_control">OFF</td>
+                    <td class="timer_control">DELETE</td>
+                </tr>
+                <tr>
+                    <td class='timer_seg_control' rowspan="2" style="border-left-color:transparent;">-</td>
+                    <td class='timer_seg_control' rowspan="2">+</td>
+                    <td class='timer_seg_control' rowspan="2">-</td>
+                    <td class='timer_seg_control' rowspan="2">+</td>
+                    <td class='timer_seg_control' rowspan="2">-</td>
+                    <td class='timer_seg_control' rowspan="2">+</td>
+                    <td class='timer_seg_control' rowspan="2">-</td>
+                    <td class='timer_seg_control' rowspan="2">+</td>
+                    <td class='timer_toys' rowspan="2" colspan="2">timer toys</td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+        </div>
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+    <div class="page_container">
+        <div class="add_timer_button" title="Add Timer" onclick="addTimer()">+T</div>
+        <div class="add_timer_button" title="Add Page" onclick="addPage()">+P</div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</body>
+
+</html>
+

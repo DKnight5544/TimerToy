@@ -15,9 +15,17 @@ namespace TimerToy
 
             routes.MapRoute(
                 name: "Default",
+                //url: "{controller}/{action}/{id}",
+                url: "{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "ApiRoute",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

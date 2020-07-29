@@ -1,0 +1,142 @@
+﻿
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+body {
+    position: relative;
+    color: black;
+    background-color: white;
+}
+
+
+#PageNameInput {
+    width: 100%;
+    border: none;
+    background-color: #404040;
+    color: White;
+    font-size: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    overflow: hidden;
+}
+
+    #PageNameInput:focus {
+        background-color: silver;
+        color: black;
+    }
+
+.page_container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.add_timer_button {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #404040;
+    color: White;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius:10px;
+}
+
+.add_timer_button:hover {
+    background-color: silver;
+    color: black;
+}
+
+/*
+-------------------------------------------
+    Timer Table CSS
+-------------------------------------------
+*/
+
+#TimerTemplate{
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 450px;
+    background-image: url(/Content/Home/BrushedMetal01.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.timer_table {
+    width:100%;
+    font-family: monospace;
+    border-collapse: collapse;
+}
+
+.timer_name_col {
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+}
+
+.timer_name {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 20px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    /*overflow: hidden;*/
+}
+
+    .timer_name:focus {
+        background-color: silver;
+        color: black;
+    }
+
+.timer_seg_time {
+    border: 1px solid white;
+    text-align: center;
+    font-size: 40px;
+}
+
+.timer_seg_control {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align:center;
+    border: 1px solid white;
+    border-bottom:none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+    .timer_seg_control:hover {
+        background-color: silver;
+        color: black;
+    }
+
+
+.timer_control {
+    width:40px;
+    font-size: 15px;
+    border: 1px solid white;
+    border-right:none;
+    padding: 5px;
+    cursor:pointer;
+}
+
+    .timer_control:hover {
+        background-color: silver;
+        color: black;
+    }
+
+
+.timer_toys{
+    text-align:center;
+    font-size: 12px;
+    padding: 5px;
+}

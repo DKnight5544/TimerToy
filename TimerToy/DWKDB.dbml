@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dwk-multiple-projects" Class="DWKDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=dwk-sql-server-01.database.windows.net;Initial Catalog=dwk-multiple-projects;Persist Security Info=True;User ID=TimerToysApp" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TimerToysConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="tt.Page" Member="Pages">
+    <Type Name="Page" Id="ID1">
+      <Column Name="PageKey" Type="System.String" DbType="Char(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PageName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="tt.vwSelectAll" Member="Timers">
+    <Type Name="Timer" Id="ID2">
+      <Column Name="PageKey" Type="System.String" DbType="Char(36) NOT NULL" CanBeNull="false" />
+      <Column Name="PageName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="TimerKey" Type="System.String" DbType="Char(36) NOT NULL" CanBeNull="false" />
+      <Column Name="TimerDescription" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="IsRunning" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsBookmark" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SortIndex" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ElapsedTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="tt.DeleteTimer" Method="DeleteTimer">
+    <Parameter Name="TimerKey" Parameter="timerKey" Type="System.String" DbType="Char(36)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="tt.UpdatePageName" Method="UpdatePageName">
+    <Parameter Name="PageKey" Parameter="pageKey" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="PageName" Parameter="pageName" Type="System.String" DbType="NVarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="tt.SelectPageData" Method="SelectPageData">
+    <Parameter Name="PageKey" Parameter="pageKey" Type="System.String" DbType="Char(36)" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="tt.InsertNewPage" Method="InsertNewPage">
+    <Parameter Name="PageKey" Parameter="pageKey" Type="System.String" DbType="Char(36)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="tt.SelectAllByPage" Method="SelectAllByPage">
+    <Parameter Name="PageKey" Parameter="pageKey" Type="System.String" DbType="Char(36)" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="tt.ToggleTimer" Method="ToggleTimer">
+    <Parameter Name="TimerKey" Parameter="timerKey" Type="System.String" DbType="Char(36)" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="tt.UpdateTimerName" Method="UpdateTimerName">
+    <Parameter Name="TimerKey" Parameter="timerKey" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="TimerDescription" Parameter="timerDescription" Type="System.String" DbType="NVarChar(150)" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="tt.InsertNewTimer" Method="InsertNewTimer">
+    <Parameter Name="PageKey" Parameter="pageKey" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="IsBookMark" Parameter="isBookMark" Type="System.Boolean" DbType="Bit" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="tt.ResetTimer" Method="ResetTimer">
+    <Parameter Name="TimerKey" Parameter="timerKey" Type="System.String" DbType="Char(36)" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="tt.AdjustTimer" Method="AdjustTimer">
+    <Parameter Name="TimerKey" Parameter="timerKey" Type="System.String" DbType="Char(36)" />
+    <Parameter Name="Seconds" Parameter="seconds" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID2" />
+  </Function>
+</Database>
